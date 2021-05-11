@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  confluence:
+    labels:
+      traefik.http.routers.confluence.rule: 'Host(`${CONFLUENCE_DOMAIN}`)'
+      traefik.http.routers.confluence.tls: 'true'
+      traefik.http.routers.confluence.tls.certresolver: 'default'
+      traefik.http.services.confluence.loadbalancer.server.port: '8090'
+  traefik:
+    image: eugenmayer/traefik:2.x
+    restart: always
+    ports:
+      - 80:8080
+      - 443:8443
+    environment:
+      TRAEFIK_ACME_ENABLE: 'true'
+      TRAEFIK_ACME_CHALLENGE: 'http'
+      TRAEFIK_HTTPS_ENABLE: 'only'
+      TRAEFIK_DOCKER_ENABLE: 'true'
+    volumes:
+      - certs:/mnt/certs
+      - filestorage:/mnt/filestorage
+      - acme:/mnt/acme
+      # mount our docker socket so our docker container can be discovered
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  certs:
+  filestorage:
+  acme:
