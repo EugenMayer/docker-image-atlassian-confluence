@@ -7,6 +7,10 @@ services:
       traefik.http.routers.confluence.tls: 'true'
       traefik.http.routers.confluence.tls.certresolver: 'default'
       traefik.http.services.confluence.loadbalancer.server.port: '8090'
+    environment:
+      CONFLUENCE_PROXY_NAME: ${CONFLUENCE_DOMAIN}
+      CONFLUENCE_PROXY_PORT: 443
+      CONFLUENCE_PROXY_SCHEME: https
   traefik:
     image: eugenmayer/traefik:2.x
     restart: always
