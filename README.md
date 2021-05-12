@@ -44,10 +44,11 @@ Set the DEBUG port, e.g. for development
 Configuration
 - CATALINA_OPTS=-Xms256m -Xmx1g
 - CONFLUENCE_CONTEXT_PATH= # context path like `/confluence`
-- CONFLUENCE_PROXY_NAME=
-- CONFLUENCE_PROXY_PORT=
-- CONFLUENCE_PROXY_SCHEME=
 - CONFLUENCE_DELAYED_START= # seconds to wait before starting confluence
+- CONFLUENCE_PROXY_NAME= # your.domatina.tld (no scheme!)- your outer proxy domain, e.g. if you use external ssl offloading
+- CONFLUENCE_PROXY_PORT= # proxy port, 443 , e.g. if you use external ssl offloading
+- CONFLUENCE_PROXY_SCHEME= # http or https - https if you use external ssl offloading
+
 
 # Volumes for persistence
 
