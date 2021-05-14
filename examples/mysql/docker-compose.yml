@@ -1,7 +1,7 @@
-version: "3"
+version: '3'
 
 services:
-  jira:
+  confluence:
     image: eugenmayer/confluence
     ports:
       - '80:8090'
