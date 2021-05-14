@@ -2,15 +2,15 @@
 
 # Docker images for Atlassian Confluence
 
-Production ready AND **development** ready, up to date builds of Atlassian Confluence - right from the original binary download based on
+Production-ready AND **development** ready, up to date builds of Atlassian Confluence - right from the original binary download based on
 
   - adoptjdk openjdk 11 (Confluence 7) 
   - adoptjdk openjdk 8 (Confluence 6)
 
-You can run those images for production use ( see `./examples` ) or for developming with auto-setup and debugging.
+You can run those images for production use ( see `./examples` ) or for developing with auto-setup and debugging.
 
 ## Automatic builds
-This project is build by concourse.ci, see [our oss pipelines here](https://github.com/EugenMayer/concourse-our-open-pipelines)
+This project is built by concourse.ci, see [our oss pipelines here](https://github.com/EugenMayer/concourse-our-open-pipelines)
 
 ## Supported tags and respective Dockerfile links
 
@@ -29,11 +29,11 @@ docker-compose up
 
 Please see the `docker-compose.yml` for the configuration variables
 
-Also see the folder `examples/` for different examples with postgres or mysql
+Also, see the folder `examples/` for different examples with Postgres or Mysql
 
 # Environment variables
 
-Configures the db host to wait for the DB to come up. Those variables are not used by confluence during the installation
+Configures the DB host to wait for the DB to come up. Those variables are not used by confluence during the installation
 - CONFLUENCE_DB_HOST=db 
 - CONFLUENCE_DB_PORT=5432
 
@@ -45,7 +45,7 @@ Configuration
 - CATALINA_OPTS=-Xms256m -Xmx1g
 - CONFLUENCE_CONTEXT_PATH= # context path like `/confluence`
 - CONFLUENCE_DELAYED_START= # seconds to wait before starting confluence
-- CONFLUENCE_PROXY_NAME= # your.domatina.tld (no scheme!)- your outer proxy domain, e.g. if you use external ssl offloading
+- CONFLUENCE_PROXY_NAME= # your.domain.TLD (no scheme!)- your outer proxy domain, e.g. if you use external SSL offloading
 - CONFLUENCE_PROXY_PORT= # proxy port, 443 , e.g. if you use external ssl offloading
 - CONFLUENCE_PROXY_SCHEME= # http or https - https if you use external ssl offloading
 
@@ -63,14 +63,14 @@ Let's assume you have a setup.sh in your folder
 
 Your script `setup.sh` might look like this, setting up a confluence as fast as possible with 
 
- - preconfigured server id
+ - preconfigured server-id
  - a preset license
  - pre-configured database settings
  
 Moving you as fast as possible to have a blank and working confluence installation. Be sure to replace the
 
- - <YOUR LICENSE> part and adjust the serverid
- - adjust your database name, user and password if needed
+ - <YOUR LICENSE> part and adjust the server-id
+ - adjust your database name, user, and password if needed
 
 ```bash
 #!/bin/bash
@@ -110,7 +110,7 @@ volumes:
 ```
 
 After starting the stack, just access your confluence instance once `http://localhost` and wait for about 1 minute.
-The confluence database is setup with all the bits and pieces. Then you just select which type of profile ( blank db or example )
+The confluence database is set up with all the bits and pieces. Then you just select which type of profile ( blank DB or example )
 and create your admin account - that's it!
 
 
@@ -124,7 +124,7 @@ For any version of Confluence >= 7.0.0
     export VERSION=7.1.2
     docker build . -t eugenmayer/confluence:# $VERSION --build-args CONFLUENCE_VERSION=$VERSION
 
-For any version of Confluence <= 7.0.0, we neeed Java 8
+For any version of Confluence <= 7.0.0, we need Java 8
 
     export VERSION=6.17.1
     docker build . -f Dockerfile_java8 -t eugenmayer/confluence:# $VERSION --build-args CONFLUENCE_VERSION=$VERSION
@@ -138,5 +138,3 @@ You may also like:
 * [bitbucket](https://github.com/EugenMayer/docker-image-atlassian-bitbucket)
 * [rancher catalog - corresponding catalog for confluence](https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/templates/confluence)
 * [development - running this image for development with debugging](https://github.com/EugenMayer/docker-image-atlassian-confluence/tree/master/examples/debug)
-
-
