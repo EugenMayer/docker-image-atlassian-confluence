@@ -8,6 +8,11 @@ services:
       - '8091:8091'
       - '5005:5005'
     environment:
+      # -Datlassian.allow.insecure.url.parameter.login=true
+      # does add the option to still use url based basic auth, see
+      # https://confluence.atlassian.com/doc/recognized-system-properties-190430.html
+      # and https://developer.atlassian.com/server/confluence/http-authentication-with-seraph/
+      - CATALINA_OPTS="-Datlassian.allow.insecure.url.parameter.login=true -Xms256m -Xmx1g"
       - CONFLUENCE_DB_HOST=db
       - CONFLUENCE_DB_PORT=5432
       - JPDA_ADDRESS=5005
