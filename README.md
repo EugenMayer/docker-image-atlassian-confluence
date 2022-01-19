@@ -1,4 +1,8 @@
 [![Docker Stars](https://img.shields.io/docker/stars/eugenmayer/confluence.svg)](https://hub.docker.com/r/EugenMayer/confluence/) [![Docker Pulls](https://img.shields.io/docker/pulls/eugenmayer/confluence.svg)](https://github.com/EugenMayer/docker-image-atlassian-confluence/pkgs/container/confluence)
+# NOTICE
+
+Since we are no longer using this images to run confluence, only for development usage, we are not goint to update the image as often as we used to.
+If you like to udpate it more recent, please apply as contributor, we are happy to add you.
 
 # Docker images for Atlassian Confluence
 
