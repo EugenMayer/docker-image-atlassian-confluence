@@ -32,7 +32,6 @@ RUN export CONTAINER_USER=confluence \
   curl \
   tar \
   ttf-mscorefonts-installer \
-  ttf-dejavu \
   fontconfig \
   libmotif-common \
   ghostscript \

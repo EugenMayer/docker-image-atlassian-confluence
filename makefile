@@ -5,6 +5,10 @@ build:
 	docker pull bellsoft/liberica-openjre-debian:11
 	source ./version && docker build -t ghcr.io/eugenmayer/confluence . --build-arg CONFLUENCE_VERSION=$${VERSION}
 
+build8:
+	docker pull bellsoft/liberica-openjre-debian:8
+	source ./version && docker build -t ghcr.io/eugenmayer/confluence -f Dockerfile_java8 . --build-arg CONFLUENCE_VERSION=$${VERSION}
+
 push: tag-docker-hub tag-github push-github push-hub
 	echo "done pushing"
 
