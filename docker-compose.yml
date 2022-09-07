@@ -2,7 +2,7 @@ version: '2'
 
 services:
   confluence:
-    image: eugenmayer/confluence:${CONFLUENCE_VERSION}
+    image: ghcr.io/eugenmayer/confluence:${CONFLUENCE_VERSION}
     build:
       context: ./
       args:
@@ -37,7 +37,7 @@ services:
       #- CONFLUENCE_CONFIG_PROPERTY1=confluence.setup.server.id
       #- CONFLUENCE_CONFIG_VALUE1=BDYQ-V8CF-YYYY-XXXX
   db:
-    image: postgres:9.6
+    image: postgres:11
     container_name: postgres
     volumes:
       - postgresqldata:/var/lib/postgresql/data
