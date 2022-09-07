@@ -32,8 +32,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: | 
-            ${{ env.IMAGE_FQDN }}:latest
-            ${{ env.IMAGE_FQDN }}:2.x
             ${{ env.IMAGE_FQDN }}:${{ github.ref_name }}
           build-args: |
             CONFLUENCE_VERSION=${{ github.ref_name }}
