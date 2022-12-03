@@ -22,7 +22,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ github.token }}
-      - name: Build and push
+      - name: Build
         uses: docker/build-push-action@v3
         with:
           context: .
