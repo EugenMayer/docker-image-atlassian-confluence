@@ -1,14 +1,14 @@
 [![Docker Stars](https://img.shields.io/docker/stars/eugenmayer/confluence.svg)](https://hub.docker.com/r/EugenMayer/confluence/) 
 # NOTICE
 
-Since we are no longer using this images to run confluence, only for development usage, we are not goint to update the image as often as we used to.
+Since we are no longer using this images to run confluence in production, only for development usage, thus we are not goint to update the image as often as we used to.
 If you like to udpate it more recent, please apply as contributor, we are happy to add you.
 
 # Docker images for Atlassian Confluence
 
 Production-ready AND **development** ready, up to date builds of Atlassian Confluence - right from the original binary download based on
 
-- bellsoft openjdk 11 (Confluence 7)
+- bellsoft openjdk 11 (Confluence 7+)
 - bellsoft openjdk 8 (Confluence 6)
 
 You can run those images for production use ( see `./examples` ) or for developing with auto-setup and debugging.
@@ -39,9 +39,9 @@ This project is built by concourse.ci, see [our oss pipelines here](https://gith
 
 | Product    | Version             | Tags                                                                                                  | Dockerfile                                                                                                       |
 | ---------- | ------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| github     | 7.15+               | [see tags](https://github.com/EugenMayer/docker-image-atlassian-confluence/pkgs/container/confluence) | [Dockerfile](https://github.com/EugenMayer/docker-image-atlassian-confluence/blob/master/Dockerfile)             |
+| github     | 7.15+-8.x+             | [see tags](https://github.com/EugenMayer/docker-image-atlassian-confluence/pkgs/container/confluence) | [Dockerfile](https://github.com/EugenMayer/docker-image-atlassian-confluence/blob/master/Dockerfile)             |
 | (legacy) docker-hub | 7.0-7.15     | [see tags](https://hub.docker.com/r/eugenmayer/confluence/tags/)                                      | -          |
-| (legacy) docker-hub | 6.13.x <7.x(latest) | [see tags](https://hub.docker.com/r/eugenmayer/confluence/tags/)                                      | - |
+| (legacy) docker-hub | 6.13.x <7.x  | [see tags](https://hub.docker.com/r/eugenmayer/confluence/tags/)                                      | - |
 
 # Quickstart
 
@@ -160,6 +160,4 @@ For any version of Confluence <= 7.0.0, we need Java 8
 You may also like:
 
 - [jira](https://github.com/EugenMayer/docker-image-atlassian-jira)
-- [bitbucket](https://github.com/EugenMayer/docker-image-atlassian-bitbucket)
-- [rancher catalog - corresponding catalog for confluence](https://github.com/EugenMayer/docker-rancher-extra-catalogs/tree/master/templates/confluence)
 - [development - running this image for development with debugging](https://github.com/EugenMayer/docker-image-atlassian-confluence/tree/master/examples/debug)
