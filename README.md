@@ -33,7 +33,7 @@ Traefik based stack, see `./example/ssl`. Just enter your `CONFLUENCE_DOMAIN` in
 
 ## Automatic builds
 
-This project is built by concourse.ci, see [our oss pipelines here](https://github.com/EugenMayer/concourse-our-open-pipelines)
+Build via github actions.
 
 ## Supported tags and respective Dockerfile links
 
