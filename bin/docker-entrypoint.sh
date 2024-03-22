@@ -118,6 +118,7 @@ CATALINA_OPTS="-XX:+UseG1GC ${CATALINA_OPTS}"
 CATALINA_OPTS="${START_CONFLUENCE_JAVA_OPTS} ${CATALINA_OPTS}"
 CATALINA_OPTS="-Dsynchrony.enable.xhr.fallback=true ${CATALINA_OPTS}"
 CATALINA_OPTS="-Dorg.apache.tomcat.websocket.DEFAULT_BUFFER_SIZE=32768 ${CATALINA_OPTS}"
+CATALINA_OPTS="-Dupm.plugin.upload.enabled=true ${CATALINA_OPTS}"
 CATALINA_OPTS="-Dconfluence.context.path=${CONFLUENCE_CONTEXT_PATH} ${CATALINA_OPTS}"' >> ${CONF_INSTALL}/bin/setenv.sh
     echo "export CATALINA_OPTS" >> ${CONF_INSTALL}/bin/setenv.sh
   fi
