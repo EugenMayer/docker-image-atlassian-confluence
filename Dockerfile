@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjre-debian:11
+FROM bellsoft/liberica-openjre-debian:17
 
 ARG CONFLUENCE_VERSION=8.0.0
 # permissions
