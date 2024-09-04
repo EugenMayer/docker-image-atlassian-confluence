@@ -1,6 +1,8 @@
 FROM bellsoft/liberica-openjre-debian:17
 
-ARG CONFLUENCE_VERSION=8.0.0
+LABEL org.opencontainers.image.source="https://github.com/EugenMayer/docker-image-atlassian-confluence"
+
+ARG CONFLUENCE_VERSION=9.0.0
 # permissions
 ARG CONTAINER_UID=1000
 ARG CONTAINER_GID=1000
@@ -8,7 +10,7 @@ ARG CONTAINER_GID=1000
 # Setup useful environment variables
 ENV CONF_HOME=/var/atlassian/confluence \
   CONF_INSTALL=/opt/atlassian/confluence \
-  MYSQL_DRIVER_VERSION=5.1.48
+  MYSQL_DRIVER_VERSION=9.0.0
 
 COPY bin/custom_scripts.sh /usr/local/bin/custom_scripts.sh
 COPY bin/wait-for-it.sh /usr/local/bin/wait-for-it
@@ -46,7 +48,7 @@ RUN export CONTAINER_USER=confluence \
   && mkdir -p ${CONF_HOME} \    
   && chown -R confluence:confluence ${CONF_HOME} \
   && mkdir -p ${CONF_INSTALL}/conf \
-  && export CONFLUENCE_BIN=atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz \    
+  && export CONFLUENCE_BIN=atlassian-confluence-${CONFLUENCE_VERSION}.tar.gz \
   && wget -O $CONFLUENCE_BIN https://www.atlassian.com/software/confluence/downloads/binary/${CONFLUENCE_BIN} \
   && tar xzf $CONFLUENCE_BIN --strip-components=1 -C ${CONF_INSTALL} \
   && echo "confluence.home=${CONF_HOME}" > ${CONF_INSTALL}/confluence/WEB-INF/classes/confluence-init.properties \
@@ -91,4 +93,3 @@ COPY bin/docker-entrypoint.sh /home/confluence/docker-entrypoint.sh
 ENTRYPOINT ["/usr/bin/tini","--","/home/confluence/docker-entrypoint.sh"]
 CMD ["confluence"]
 
-LABEL org.opencontainers.image.source = "https://github.com/EugenMayer/docker-image-atlassian-confluence"
