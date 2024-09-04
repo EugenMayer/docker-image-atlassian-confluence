@@ -57,7 +57,7 @@ RUN export CONTAINER_USER=confluence \
 
   && wget -O /tmp/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-${MYSQL_DRIVER_VERSION}.tar.gz \
   && tar xzf /tmp/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz -C /tmp \
-  && cp /tmp/mysql-connector-java-${MYSQL_DRIVER_VERSION}/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar ${CONF_INSTALL}/lib/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar \
+  && cp /tmp/mysql-connector-j-${MYSQL_DRIVER_VERSION}/mysql-connector-j-${MYSQL_DRIVER_VERSION}.jar ${CONF_INSTALL}/lib/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar \
   && chown -R confluence:confluence ${CONF_INSTALL} \
   # Adding letsencrypt-ca to truststore
   && export KEYSTORE=$JRE_HOME/lib/security/cacerts \
