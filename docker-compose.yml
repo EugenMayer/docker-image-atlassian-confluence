@@ -28,7 +28,7 @@ services:
       #- CONFLUENCE_CONFIG_VALUE1=org.mysql.Driver
       - CONFLUENCE_CONFIG_VALUE1=org.postgresql.Driver
       - CONFLUENCE_CONFIG_PROPERTY2=hibernate.connection.password
-      - CONFLUENCE_CONFIG_VALUE2=jellyfish
+      - CONFLUENCE_CONFIG_VALUE2=verybigsecretrootpassword
       - CONFLUENCE_CONFIG_PROPERTY3=hibernate.connection.url
       - CONFLUENCE_CONFIG_VALUE3=jdbc:postgresql://db/confluencedb
       #- CONFLUENCE_CONFIG_VALUE3=mysql://confluencedb@db/confluencedb?sessionVariables=tx_isolation='READ-COMMITTED'
