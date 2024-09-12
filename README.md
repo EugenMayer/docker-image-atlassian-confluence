@@ -8,6 +8,7 @@ If you like to udpate it more recent, please apply as contributor, we are happy 
 
 Production-ready AND **development** ready, up to date builds of Atlassian Confluence - right from the original binary download based on
 
+- bellsoft openjdk 17 (Confluence 9+)
 - bellsoft openjdk 11 (Confluence 7+)
 - bellsoft openjdk 8 (Confluence 6)
 
@@ -39,7 +40,7 @@ Build via github actions.
 
 | Product    | Version             | Tags                                                                                                  | Dockerfile                                                                                                       |
 | ---------- | ------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| github     | 7.15+-8.x+             | [see tags](https://github.com/EugenMayer/docker-image-atlassian-confluence/pkgs/container/confluence) | [Dockerfile](https://github.com/EugenMayer/docker-image-atlassian-confluence/blob/master/Dockerfile)             |
+| github     | 7.15+-9.x+             | [see tags](https://github.com/EugenMayer/docker-image-atlassian-confluence/pkgs/container/confluence) | [Dockerfile](https://github.com/EugenMayer/docker-image-atlassian-confluence/blob/master/Dockerfile)             |
 | (legacy) docker-hub | 7.0-7.15     | [see tags](https://hub.docker.com/r/eugenmayer/confluence/tags/)                                      | -          |
 | (legacy) docker-hub | 6.13.x <7.x  | [see tags](https://hub.docker.com/r/eugenmayer/confluence/tags/)                                      | - |
 
