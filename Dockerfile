@@ -15,7 +15,7 @@ ENV CONF_HOME=/var/atlassian/confluence \
 COPY bin/custom_scripts.sh /usr/local/bin/custom_scripts.sh
 COPY bin/wait-for-it.sh /usr/local/bin/wait-for-it
 
-RUN echo "deb http://deb.debian.org/debian buster contrib" > /etc/apt/sources.list.d/contrib.list
+RUN echo "deb http://ftp.de.debian.org/debian bookworm main contrib non-free non-free non-free-firmware" > /etc/apt/sources.list.d/contrib.list
 
 # Install Atlassian Confluence
 RUN export CONTAINER_USER=confluence \
