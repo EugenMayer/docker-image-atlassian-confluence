@@ -1,11 +1,11 @@
-FROM eclipse-temurin:21-noble
+FROM bellsoft/liberica-openjre-debian:17
 
 LABEL org.opencontainers.image.source="https://github.com/EugenMayer/docker-image-atlassian-confluence"
 
 ARG CONFLUENCE_VERSION=9.0.0
 # permissions
-ARG CONTAINER_UID=1001
-ARG CONTAINER_GID=1001
+ARG CONTAINER_UID=1000
+ARG CONTAINER_GID=1000
 
 # Setup useful environment variables
 ENV CONF_HOME=/var/atlassian/confluence \
@@ -14,6 +14,8 @@ ENV CONF_HOME=/var/atlassian/confluence \
 
 COPY bin/custom_scripts.sh /usr/local/bin/custom_scripts.sh
 COPY bin/wait-for-it.sh /usr/local/bin/wait-for-it
+
+RUN echo "deb http://ftp.de.debian.org/debian bookworm main contrib non-free non-free non-free-firmware" > /etc/apt/sources.list.d/contrib.list
 
 # Install Atlassian Confluence
 RUN export CONTAINER_USER=confluence \

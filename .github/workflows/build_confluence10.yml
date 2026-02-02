@@ -3,7 +3,7 @@ name: build-and-push
 on:
   push:
     tags:
-      - '*'
+      - '10.*'
 
 env:
   IMAGE_FQDN: ghcr.io/eugenmayer/confluence
@@ -26,9 +26,10 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ github.token }}
       - name: Build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: .
+          file: Dockerfile
           platforms: linux/amd64
           push: false
           tags: |
@@ -36,10 +37,11 @@ jobs:
           build-args: |
             CONFLUENCE_VERSION=${{ github.ref_name }}
       - name: Push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         if: startsWith(github.ref, 'refs/tags/')
         with:
           context: .
+          file: Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
