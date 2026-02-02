@@ -9,8 +9,7 @@ ARG CONTAINER_GID=1001
 
 # Setup useful environment variables
 ENV CONF_HOME=/var/atlassian/confluence \
-  CONF_INSTALL=/opt/atlassian/confluence \
-  MYSQL_DRIVER_VERSION=9.0.0
+  CONF_INSTALL=/opt/atlassian/confluence
 
 COPY bin/custom_scripts.sh /usr/local/bin/custom_scripts.sh
 COPY bin/wait-for-it.sh /usr/local/bin/wait-for-it
@@ -50,12 +49,7 @@ RUN export CONTAINER_USER=confluence \
   && wget -O $CONFLUENCE_BIN https://www.atlassian.com/software/confluence/downloads/binary/${CONFLUENCE_BIN} \
   && tar xzf $CONFLUENCE_BIN --strip-components=1 -C ${CONF_INSTALL} \
   && echo "confluence.home=${CONF_HOME}" > ${CONF_INSTALL}/confluence/WEB-INF/classes/confluence-init.properties \
-  # Install database drivers
-  && rm -f ${CONF_INSTALL}/lib/mysql-connector-java*.jar \
 
-  && wget -O /tmp/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-${MYSQL_DRIVER_VERSION}.tar.gz \
-  && tar xzf /tmp/mysql-connector-java-${MYSQL_DRIVER_VERSION}.tar.gz -C /tmp \
-  && cp /tmp/mysql-connector-j-${MYSQL_DRIVER_VERSION}/mysql-connector-j-${MYSQL_DRIVER_VERSION}.jar ${CONF_INSTALL}/lib/mysql-connector-java-${MYSQL_DRIVER_VERSION}.jar \
   && chown -R confluence:confluence ${CONF_INSTALL} \
   # Adding letsencrypt-ca to truststore
   && export KEYSTORE=$JRE_HOME/lib/security/cacerts \
