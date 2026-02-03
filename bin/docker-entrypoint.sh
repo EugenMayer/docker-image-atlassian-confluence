@@ -190,6 +190,8 @@ echo "waiting for database before running the custom scripts"
 
 /usr/local/bin/custom_scripts.sh
 
+# fix CATALINA OPTs
+echo 'CATALINA_OPTS="-Dupm.plugin.upload.enabled=true ${CATALINA_OPTS}"' >> /opt/atlassian/confluence/bin/setenv.sh
 if [ "$1" = 'confluence' ]; then
   exec ${CONF_INSTALL}/bin/start-confluence.sh -fg
 else
