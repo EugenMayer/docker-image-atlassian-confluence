@@ -79,7 +79,7 @@ RUN chown confluence:confluence ${CONF_HOME}/confluence.cfg.xml
 # patch upm so we can upload custom
 RUN mkdir -p /var/atlassian/confluence/upmconfig/ && chown root:root /var/atlassian/confluence/upmconfig
 COPY upm.properties /var/atlassian/confluence/upmconfig/upm.properties
-RUN chmod /var/atlassian/confluence/upmconfig/upm.properties
+RUN chmod u=r,g=r,o=r /var/atlassian/confluence/upmconfig/upm.properties && chown root:root /var/atlassian/confluence/upmconfig/upm.properties
 
 USER confluence
 
